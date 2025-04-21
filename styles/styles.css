@@ -1,0 +1,126 @@
+body {
+    margin: 0;
+    font-family: 'Orbitron', sans-serif;
+    background: linear-gradient(to right, #111, #222);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  h1::after {
+    content: '';
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background-color: #0f0;
+    border-radius: 50%;
+    margin-left: 10px;
+    animation: blink 1s infinite;
+  }
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+  .scoreboard {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 900px;
+    margin-top: 20px;
+  }
+  .team {
+    background: #1e1e1e;
+    padding: 20px;
+    border-radius: 20px;
+    text-align: center;
+    width: 250px;
+    position: relative;
+    overflow: hidden;
+  }
+  .team::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    border-radius: 25px;
+    z-index: -1;
+    background: conic-gradient(from var(--angle), #0f0 0%, #0a0 50%, #0f0 100%);
+    animation: rotateFlame 4s linear infinite;
+  }
+  @keyframes rotateFlame {
+    0% {
+      --angle: 0deg;
+    }
+    100% {
+      --angle: 360deg;
+    }
+  }
+  .team h2 {
+    margin: 10px 0 5px;
+  }
+  .score {
+    font-size: 50px;
+    color: #0f0;
+  }
+  .past-matches {
+    margin-top: 40px;
+    width: 100%;
+    max-width: 600px;
+  }
+  .past-matches h3 {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  .match {
+    background: #333;
+    margin: 5px 0;
+    padding: 10px 15px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .winner {
+    color: #0f0;
+    font-weight: bold;
+  }
+  .loser {
+    color: #f00;
+    opacity: 0.8;
+  }
+  .ball {
+    position: absolute;
+    top: 50%;
+    left: -50px;
+    width: 30px;
+    height: 30px;
+    background: radial-gradient(#fff, #aaa);
+    border-radius: 50%;
+    box-shadow: 0 0 8px 2px #0f0;
+    z-index: 9999;
+    display: none;
+  }
+  @keyframes shootBall {
+    0% {
+      left: -50px;
+      top: 50%;
+      transform: scale(1) rotate(0deg);
+    }
+    90% {
+      transform: scale(1.3) rotate(720deg);
+    }
+    100% {
+      left: var(--target-x);
+      top: var(--target-y);
+      transform: scale(1) rotate(1080deg);
+    }
+  }
+  @media (max-width: 600px) {
+    .team {
+      width: 100%;
+    }
+  }
