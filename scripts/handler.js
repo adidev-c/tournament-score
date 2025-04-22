@@ -11,8 +11,8 @@ export function handle_game(snapshot) {
 export function handle_name(snapshot) {
     const data = snapshot.val();
     update_name(
-        JSON.parse(data.teama.name),//avoid json type string
-        JSON.parse(data.teamb.name)
+        data.teama.name,
+        data.teamb.name
     )
 }
 
@@ -27,6 +27,6 @@ export function handle_score(snapshot) {
 export function handle_status(snapshot) {
     const data = snapshot.val();
     update_status(
-        JSON.parse(data)
+        data
     )
 }
