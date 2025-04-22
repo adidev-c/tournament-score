@@ -6,10 +6,9 @@ import { onValue } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-data
 //handlers
 import {
   handle_game,
-  handle_name,
-  handle_score,
   handle_status
 } from './handler.js'
+
 const firebaseConfig = {
   apiKey: "AIzaSyB9ACEsLDEsech23PHoWJjMczUxGdhgIO0",
   authDomain: "football-tournament-450f7.firebaseapp.com",
@@ -28,7 +27,8 @@ const db = getDatabase(app);
 document.addEventListener("DOMContentLoaded", () => {
   const live = ref(db, "Live/live");
   const status = ref(db, "Live/status");
-  onValue(live,handle_game)
-  onValue(status,handle_status)
+  onValue(live, handle_game);
+  onValue(status, handle_status);
+
 });
-  
+
