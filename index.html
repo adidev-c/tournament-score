@@ -3,12 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Village Cup Live Scoreboard</title>
+  <title>Tournament Score Board</title>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./styles/styles.css">
 </head>
 <body>
   <h1>Tournament Live Score Board</h1>
+  <div class="status-text">
+    Status: <span class="live">Live</span>
+  </div>
   <div class="scoreboard">
     <div class="team" id="teamA">
       <h2 id="teamA-name">Team A</h2>
@@ -24,17 +27,21 @@
     <h3>Past Matches</h3>
     <div id="past-matches">
       <div class="match">
-        <span class="winner">Team X 3</span>
-        <span class="loser">1 Team Y</span>
+        <span class="winner">Team X : 3</span>
+        <span class="loser">Team Y : 1</span>
       </div>
       <div class="match">
-        <span class="loser">0 Team A</span>
-        <span class="winner">Team B 2</span>
+        <span class="loser">Team A : 0</span>
+        <span class="winner">Team B : 2</span>
       </div>
       <div class="match">
-        <span class="winner">Team C 4</span>
-        <span class="loser">2 Team D</span>
+        <span class="winner">Team C : 4</span>
+        <span class="loser">Team D : 5</span>
       </div>
+      <div class="match">
+        <span class="draw">Team E : 2</span>
+        <span class="draw">Team F : 2</span>
+      </div>      
     </div>
   </div>
 

@@ -87,10 +87,16 @@ body {
   .winner {
     color: #0f0;
     font-weight: bold;
+    opacity: 0.9;
+    text-shadow: 0 0 5px #0f0;
+    
   }
   .loser {
     color: #f00;
+    font-weight: bold;
     opacity: 0.8;
+    text-shadow: 0 0 5px #f00;
+    
   }
   .ball {
     position: absolute;
@@ -124,3 +130,36 @@ body {
       width: 100%;
     }
   }
+  .status-text {
+    font-size: 1.2rem;
+    margin-top: 10px;
+    color: #0f0;
+    background: rgba(0, 255, 0, 0.1);
+    padding: 8px 16px;
+    border: 1px solid #0f0;
+    border-radius: 10px;
+    text-transform: uppercase;
+    box-shadow: 0 0 10px #0f0;
+    animation: pulseGlow 2s infinite;
+  }
+  
+  .status-text .live {
+    font-weight: bold;
+    color: #0f0;
+  }
+  
+  @keyframes pulseGlow {
+    0%, 100% {
+      box-shadow: 0 0 10px #0f0;
+    }
+    50% {
+      box-shadow: 0 0 20px #0f0;
+    }
+  }
+  .draw {
+    color: #ffa500;
+    font-weight: bold;
+    opacity: 0.9;
+    text-shadow: 0 0 5px #ffa500aa;
+  }
+  

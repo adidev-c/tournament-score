@@ -21,22 +21,6 @@ const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const db = getDatabase(app);
 
-export async function read(key) {
-    try {
-      const snapshot = await get(child(ref(db), key));
-      if (snapshot.exists()) {
-        const data = snapshot.val();
-        console.log("Data:", data);
-        return data;
-      } else {
-        console.log("No data available");
-        return null;
-      }
-    } catch (error) {
-      console.error("Read failed:", error);
-      return null;
-    }
-  }   
 document.addEventListener("DOMContentLoaded", () => {
   const live = ref(db, "Live/live");
   onValue(live,update_all)
