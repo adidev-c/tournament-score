@@ -3,6 +3,9 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebas
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-analytics.js";
 import { getDatabase, ref, set, get, child } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-database.js";
 import { onValue } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-database.js";
+//handlers
+import { handle_score } from "./live_handlers/handle_score.js"
+import { update_all } from './update_all.js'
 const firebaseConfig = {
   apiKey: "AIzaSyB9ACEsLDEsech23PHoWJjMczUxGdhgIO0",
   authDomain: "football-tournament-450f7.firebaseapp.com",
@@ -33,17 +36,9 @@ export async function read(key) {
       console.error("Read failed:", error);
       return null;
     }
-  }
-  
-function handle(snapshot){
-    const data = snapshot.val();
-    console.log("🔥 Real-time update:", data);
-    console.log(data.teama.score)
-    console.log(data.teamb.score)
-}      
+  }   
 document.addEventListener("DOMContentLoaded", () => {
-  const messageRef = ref(db, "Live/live");
-
-  onValue(messageRef,handle)
+  const live = ref(db, "Live/live");
+  onValue(live,update_all)
 });
   
