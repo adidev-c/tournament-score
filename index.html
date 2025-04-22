@@ -10,7 +10,7 @@
 <body>
   <h1>Tournament Live Score Board</h1>
   <div class="status-text">
-    Status: <span class="live">Live</span>
+    Status: <span class="live" id='StatusText'>Live</span>
   </div>
   <div class="scoreboard">
     <div class="team" id="teamA">
@@ -46,8 +46,7 @@
   </div>
 
   <div class="ball" id="ball"></div>
-  <script type="module" src="./scripts/runtime_handlers/update_score.js"></script>
-  <script type="module" src="./scripts/runtime_handlers/update_name.js"></script>
+  <script type="module" src="./scripts/updater.js"></script>
   <script type="module" src="./scripts/firebase.js"></script>
 </body>
 </html>
