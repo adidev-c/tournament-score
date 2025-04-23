@@ -6,7 +6,8 @@ import { onValue } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-data
 //handlers
 import {
   handle_game,
-  handle_status
+  handle_status,
+  past_matches
 } from './handler.js'
 
 const firebaseConfig = {
@@ -27,8 +28,10 @@ const db = getDatabase(app);
 document.addEventListener("DOMContentLoaded", () => {
   const live = ref(db, "Live/live");
   const status = ref(db, "Live/status");
+  const past = ref(db, "Live/past");
   onValue(live, handle_game);
   onValue(status, handle_status);
+  onValue(past, past_matches);
 
 });
 
