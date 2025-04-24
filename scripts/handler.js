@@ -3,10 +3,12 @@ import {
     update_status,
     update_score,
     addPastMatch,
+    announce_score
 } from './updater.js'
+const announce_toggle = document.getElementById("announceToggle");
 export function handle_game(snapshot) {
-    handle_name(snapshot)//calling     console.log("updating status")self handle function
-    handle_score(snapshot)
+    handle_name(snapshot);
+    handle_score(snapshot);
 }
 
 export function handle_name(snapshot) {
@@ -14,7 +16,7 @@ export function handle_name(snapshot) {
     update_name(
         data.teama.name,
         data.teamb.name
-    )
+    );
 }
 
 export function handle_score(snapshot) {
@@ -22,14 +24,19 @@ export function handle_score(snapshot) {
     update_score(
         parseInt(data.teama.score), 
         parseInt(data.teamb.score)
-    )
+    );
+    if (announce_toggle.checked){
+     const text = `${data.teama.name} : ${data.teama.score} , ${data.teamb.name} : ${data.teamb.score}`;
+     announce_score(text);
+    }
+    
 }
 
 export function handle_status(snapshot) {
     const data = snapshot.val();
     update_status(
         data
-    )
+    );
 }
 
 export function past_matches(snapshot){

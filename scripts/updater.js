@@ -45,3 +45,10 @@ export function addPastMatch(team1Name, team1Score, team2Name, team2Score) {
 
     document.getElementById('past-matches').appendChild(matchDiv);
 }
+
+export function announce_score(text){
+    const utter = new SpeechSynthesisUtterance(text);
+    utter.pitch = 1;
+    utter.rate = 1;
+    speechSynthesis.speak(utter);
+}
